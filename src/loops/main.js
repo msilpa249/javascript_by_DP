@@ -21,11 +21,18 @@ function  getEmployees() {
             //     rows += (`<tr class="listItem"><td>${employees[index].employee_name}</td><td>${employees[index].employee_salary}</td></tr>`);
             // }
 
-            // for (const employee of employees) {
-            //     rows += (`<tr class="listItem"><td>${employee.employee_name}</td><td>${employee.employee_salary}</td></tr>`);
-            // }
+            let newEmployee = [];
+            for (const employee of employees) {
+                if(employee.employee_salary > 200000) {
+                    newEmployee.push(employee)
+                }
+                rows += (`<tr class="listItem"><td>${employee.employee_name}</td><td>${employee.employee_salary}</td></tr>`);
+            }
+            console.log(newEmployee);
+            let newEmp = employees.filter(employee => employee.employee_salary > 200000);
+            console.log(newEmp);
 
-            rows = employees.map(employee => `<tr class="listItem"><td>${employee.employee_name}</td><td>${employee.employee_salary}</td></tr>`).join(' ');
+            // rows = employees.map(employee => `<tr class="listItem"><td>${employee.employee_name}</td><td>${employee.employee_salary}</td></tr>`).join(' ');
 
             document.getElementById('for_loop').innerHTML = rows;
         }
